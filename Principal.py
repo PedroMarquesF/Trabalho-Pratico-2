@@ -51,13 +51,19 @@ def main():
                     if p.vetquant[veiculoNumero].ocuestado == 1:
                         print("este veículo não esta disponível")
                     else:
-                        p.vetquant[veiculoNumero].ocuestado = 1
-                        print("ADigite a data inicial que deseja ficar com esse veículo:")
+
+                        print("Digite a data inicial que deseja ficar com esse veículo:")
                         dia = int(input("digite o dia:"))
                         mes = int(input("o mês:"))
                         ano = int(input("e o ano:"))
+                        print("digite a quantidade de dias que deseja passar com o carro")
+                        qdia = int(input())
                         p.vetquant[veiculoNumero].dataInicial = datetime.date(ano, mes, dia)
+                        p.vetquant[veiculoNumero].dataFinal = p.vetquant[veiculoNumero].dataInicial + datetime.timedelta(days=qdia)
                         print(p.vetquant[veiculoNumero].dataInicial)
+                        print(p.vetquant[veiculoNumero].dataFinal)
+                        print(p.vetquant[0].modelo)
+                        #p.admdataspegar(veiculoNumero)
 
         elif opcao == "4":
             if len(p.vetquant) == 0:
