@@ -17,8 +17,10 @@ class Painel():
                 estado = "Livre"
             elif i.ocuestado == 1:
                 estado = "Alugado"
-            else:
+            elif i.ocuestado == 2:
                 estado = "Reservado"
+            elif i.ocuestado == 11:
+                estado = "alugado com atraso"
             print(str(cont).zfill(3),"-",i,estado)
         else:
             print("---------")
@@ -32,7 +34,7 @@ class Painel():
         ano = input()
         print("Digite o valor da diaria")
         diaria = input()
-        self.vetquant.append(Veiculo(0, marca, modelo, ano, diaria, 0, 0, 0))
+        self.vetquant.append(Veiculo(0, marca, modelo, ano, diaria, 0,[],[],[]))
 
 
 
@@ -40,16 +42,41 @@ class Painel():
         self.vetDias = []
 
     '''def admdatas(self, veiculoNumero):
-        self.vetquant[veiculoNumero].admDatas'''
+        self.vetquant[veiculoNumero].vetDataInicial.append(self.vetquant[veiculoNumero].dataInicial)
+        #self.vetquant[veiculoNumero].admDatas.append(self.vetquant[veiculoNumero].dataFinal)'''
 
-    def admdataspegar(self,veiculoNumero):
-        print(self.vetquant[veiculoNumero].vAdmDatasI[0])
+    '''def admdataspegar(self,veiculoNumero):
+        print(self.vetquant[veiculoNumero].vAdmDatasI[0])'''
 
     def mudarData(self,novoTempo):
+        print("passou aqui0")
         for auxiliar in self.vetquant:
-            if auxiliar.dataEntrega == 0:
+            #a = 0
+            i = -1
+            if auxiliar.ocuestado == 0:
+                print("passou aqui")
                 pass
-            else:
-                if novoTempo <= auxiliar.dataInicial:
-                    auxiliar.atraso = 1
+            elif auxiliar.ocuestado == 2:
+                print("passou aqui1")
+                while i < len(auxiliar.vetDataInicial) - 1:
+                    i = i + 1
+                    print("passou aqui3")
+                    #print(self.vetquant[a].vetDataInicial)
+                    if auxiliar.vetDataFinal[i] < novoTempo:
+                        auxiliar.ocuestado = 11
+                    elif auxiliar.vetDataInicial[i] <= novoTempo and auxiliar.vetDataFinal[i] > novoTempo:
+                        print("passou aqui2")
+                        auxiliar.ocuestado = 1
+                    else:
+                        print("deixar aqui pra ver nunca vai acontecer")
+            elif auxiliar.ocuestado == 1:
+                while i < len(auxiliar.vetDataInicial) - 1:
+                    i = i + 1
+                    print("passou aquiaa")
+                    if auxiliar.vetDataFinal[i] < novoTempo:
+                        auxiliar.ocuestado = 11
+                    else:
+                        pass
+
+
 

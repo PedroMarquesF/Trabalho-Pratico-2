@@ -44,7 +44,7 @@ def main():
             else:
                 print("Digite o veiculo que deseja de acordo com a numeração:")
                 p.consultarVeiculos()
-                veiculoNumero = int(input("~:")) - 1
+                veiculoNumero = int(input("~:")) - 1 #como se trata de um vetor a posição 1 é representada como 0 logo 1-1
                 if veiculoNumero >= len(p.vetquant) or veiculoNumero < 0:
                     print("veiculo não existe")
                 else:
@@ -53,17 +53,17 @@ def main():
                     else:
 
                         print("Digite a data inicial que deseja ficar com esse veículo:")
+                        #repet = 0 so pra lembrar dos limitadores
                         dia = int(input("digite o dia:"))
                         mes = int(input("o mês:"))
                         ano = int(input("e o ano:"))
                         print("digite a quantidade de dias que deseja passar com o carro")
                         qdia = int(input())
-                        p.vetquant[veiculoNumero].dataInicial = datetime.date(ano, mes, dia)
-                        p.vetquant[veiculoNumero].dataFinal = p.vetquant[veiculoNumero].dataInicial + datetime.timedelta(days=qdia)
-                        print(p.vetquant[veiculoNumero].dataInicial)
-                        print(p.vetquant[veiculoNumero].dataFinal)
-                        print(p.vetquant[0].modelo)
-                        #p.admdataspegar(veiculoNumero)
+                        nCadastro = input("Digite seu nome como cadastro")
+                        p.vetquant[veiculoNumero].vetNome.append(nCadastro)
+                        p.vetquant[veiculoNumero].vetDataInicial.append(datetime.date(ano, mes, dia))
+                        p.vetquant[veiculoNumero].vetDataFinal.append(datetime.date(ano, mes, dia) + datetime.timedelta(days=qdia))
+                        p.vetquant[veiculoNumero].ocuestado = 2 #quando o estado passa a ser 2 veiculo deixa de ser livre(0) e recebe o estatus de reservado
 
         elif opcao == "4":
             if len(p.vetquant) == 0:
@@ -87,8 +87,16 @@ def main():
         elif opcao == "5":
             print("Digite o veiculo que deseja de acordo com a numeração:")
             p.consultarVeiculos()
-            op = int(input())
-            del(p.vetquant[op])
+            op = int(input()) - 1
+            if p.vetquant[op].ocuestado == 1:
+                print("Este veículo não pode ser excluido pois está alugado")
+            elif p.vetquant[op].ocuestado == 2:
+                print("Este veículo não pode ser excluido pois está reservado")
+            elif p.vetquant[op].ocuestado == 11:
+                print("Este veículo não pode ser excluido pois está alugado com atraso(cliente ainda não desolveu)")
+            else:
+                print("veículo",p.vetquant[op],"excluído com sucesso")
+                del(p.vetquant[op])
 
         elif opcao == "6":
             print("a quantidade de dias que deseja avançar")
