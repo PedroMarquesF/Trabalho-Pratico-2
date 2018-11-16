@@ -3,6 +3,7 @@ from ClassPrincipal import Painel
 
 
 def main():
+    print((datetime.date(2018, 11, 2) - datetime.date(2018, 11, 20)).days)
     #date_1 = datetime.date(2018, 11, 2)
     #end_date = date_1 + datetime.timedelta(days=60)
     #print(end_date)
@@ -51,18 +52,48 @@ def main():
                     if p.vetquant[veiculoNumero].ocuestado == 1:
                         print("este veículo não esta disponível")
                     else:
+                        repet1 = 0
+                        while repet1 == 0:
+                            print("Digite a data inicial que deseja ficar com esse veículo:")
+                            repet = 0
+                            aux2 = 0
+                            dia = int(input("digite o dia:"))
+                            mes = int(input("o mês:"))
+                            ano = int(input("e o ano:"))
+                            print("digite a quantidade de dias que deseja passar com o carro")
+                            qdia = int(input())
+                            qdiai = datetime.date(ano, mes, dia)
+                            qdiaf = datetime.date(ano, mes, dia) + datetime.timedelta(days=qdia)
+                            if datetime.date(ano, mes, dia) < tempo:
+                                print("data digitada se encontra no passado")
+                            elif len(p.vetquant[veiculoNumero].vetDataInicial) == 0:
+                                repet1 = 1
+                            else:
+                                rep = 0
+                                while rep < len(p.vetquant[veiculoNumero].vetDataInicial):
+                                    indicador = 0
+                                    if (qdiai > p.vetquant[veiculoNumero].vetDataInicial[rep] and qdiai < p.vetquant[veiculoNumero].vetDataFinal[rep]
+                                    or (qdiaf > p.vetquant[veiculoNumero].vetDataInicial[rep] and qdiaf < p.vetquant[veiculoNumero].vetDataFinal[rep])) :
+                                        print("(A data digitada esta se chocando com outra reserva, por gentileza, escolha outra data:)")
+                                        indicador = 1
+                                    if indicador == 1:
+                                        pass
+                                    else:
+                                        repet1 = 1
+                                    rep += 1
 
-                        print("Digite a data inicial que deseja ficar com esse veículo:")
-                        #repet = 0 so pra lembrar dos limitadores
-                        dia = int(input("digite o dia:"))
-                        mes = int(input("o mês:"))
-                        ano = int(input("e o ano:"))
-                        print("digite a quantidade de dias que deseja passar com o carro")
-                        qdia = int(input())
+                        '''while repet == 0:
+                            if len(p.vetquant[veiculoNumero].vetDataInicial) == 0:
+                                repet = 1
+                            else:
+                                di = datetime.date(ano, mes, dia)
+                                df = di + datetime.timedelta(days=qdia)
+                                repet = 1 #por enquanto'''
                         nCadastro = input("Digite seu nome como cadastro")
                         p.vetquant[veiculoNumero].vetNome.append(nCadastro)
                         p.vetquant[veiculoNumero].vetDataInicial.append(datetime.date(ano, mes, dia))
                         p.vetquant[veiculoNumero].vetDataFinal.append(datetime.date(ano, mes, dia) + datetime.timedelta(days=qdia))
+                        p.vetquant[veiculoNumero].vetPrioridade.append(0)
                         p.vetquant[veiculoNumero].ocuestado = 2 #quando o estado passa a ser 2 veiculo deixa de ser livre(0) e recebe o estatus de reservado
 
         elif opcao == "4":
@@ -74,15 +105,47 @@ def main():
                 for aux in  p.vetquant:
                     auxi += 1
                     if aux.ocuestado == 0:
-                        print("(veículo não alugado)")
+                        print("(veículo não alugado ou reservado)")
                     else:
-                        print(auxi,"-",aux.nome)
+                        print(auxi,"-",aux.modelo)
                 opc = int(input("~:")) - 1
                 if opc > len(p.vetquant) or opc < 0:
                     print("Veículo não existe")
                 else:
-                    p.vetquant[opc].ocuestado = 0
-                    p.vetquant[opc].dataInicial = 0
+                    print("1-Devolver veículo")
+                    print("2-Cancelar reserva")
+                    escolha = input("~:")
+                    if escolha == "1":
+                        if p.vetquant[opc].ocuestado == 1:
+                            posicao = 0
+                            for im in p.vetquant[opc].vetPrioridade:
+                                if im == "prioridade":
+                                    pass
+                                else:
+                                    posicao += 1
+
+                            diferenca_dias = (tempo - p.vetquant[opc].vetDataInicial[posicao]).days
+                            print(p.vetquant[opc].vetNome[posicao], "pagou", int(diferenca_dias) * int(p.vetquant[opc].vdiaria),"reais por", diferenca_dias, "dias de uso.")
+                            del(p.vetquant[opc].vetNome[posicao])
+                            del(p.vetquant[opc].vetDataInicial[posicao])
+                            del(p.vetquant[opc].vetDataFinal[posicao])
+                            del (p.vetquant[opc].vetPrioridade[posicao])
+                            p.vetquant[opc].ocuestado = "NA"
+                            p.mudarData(tempo)
+                            p.mudarData(tempo)
+                        elif p.vetquant[opc].ocuestado == 11:
+                            diferenca_dias = (p.vetquant[opc].vetDataFinal[0] - p.vetquant[opc].vetDataInicial[0]).days
+                            pass
+                        else:
+                            print("veículo não esta alugado")
+
+
+                    elif escolha == "2":
+                         pass
+                    else:
+                        print("sem escolhas válidas digitadas")
+
+
 
         elif opcao == "5":
             print("Digite o veiculo que deseja de acordo com a numeração:")

@@ -34,7 +34,7 @@ class Painel():
         ano = input()
         print("Digite o valor da diaria")
         diaria = input()
-        self.vetquant.append(Veiculo(0, marca, modelo, ano, diaria, 0,[],[],[]))
+        self.vetquant.append(Veiculo(0, marca, modelo, ano, diaria, 0,[],[],[],[]))
 
 
 
@@ -58,25 +58,79 @@ class Painel():
                 pass
             elif auxiliar.ocuestado == 2:
                 print("passou aqui1")
-                while i < len(auxiliar.vetDataInicial) - 1:
+                a = len(auxiliar.vetDataFinal)
+                while i < a - 1:
                     i = i + 1
                     print("passou aqui3")
                     #print(self.vetquant[a].vetDataInicial)
                     if auxiliar.vetDataFinal[i] < novoTempo:
+                        print("ita")
+                        auxiliar.vetPrioridade[i] = "prioridade"
                         auxiliar.ocuestado = 11
+                        '''auxiliar.vetDataFinal.insert(0, auxiliar.vetDataFinal[i])
+                        auxiliar.vetDataInicial.insert(0, auxiliar.vetDataInicial[i])
+                        auxiliar.vetNome.insert(0, auxiliar.vetNome[i])
+                        del(auxiliar.vetDataFinal[i+1])
+                        del (auxiliar.vetDataInicial[i+1])
+                        del (auxiliar.vetNome[i+1])'''
                     elif auxiliar.vetDataInicial[i] <= novoTempo and auxiliar.vetDataFinal[i] > novoTempo:
                         print("passou aqui2")
+                        auxiliar.vetPrioridade[i] = "prioridade"
                         auxiliar.ocuestado = 1
+                        '''auxiliar.vetDataFinal.insert(0, auxiliar.vetDataFinal[i])
+                        auxiliar.vetDataInicial.insert(0, auxiliar.vetDataInicial[i])
+                        auxiliar.vetNome.insert(0, auxiliar.vetNome[i])
+                        del (auxiliar.vetDataFinal[i+1])
+                        del (auxiliar.vetdatainicial[i+1])
+                        del (auxiliar.vetnome[i+1])'''
                     else:
                         print("deixar aqui pra ver nunca vai acontecer")
             elif auxiliar.ocuestado == 1:
-                while i < len(auxiliar.vetDataInicial) - 1:
+                a = len(auxiliar.vetDataFinal)
+                while i < a - 1:
                     i = i + 1
                     print("passou aquiaa")
                     if auxiliar.vetDataFinal[i] < novoTempo:
+                        print("itaala")
+                        auxiliar.vetPrioridade[i] = "prioridade"
                         auxiliar.ocuestado = 11
+                        '''auxiliar.vetDataFinal.insert(0, auxiliar.vetDataFinal[i])
+                        auxiliar.vetDataInicial.insert(0, auxiliar.vetDataInicial[i])
+                        auxiliar.vetNome.insert(0, auxiliar.vetNome[i])
+                        del (auxiliar.vetDataFinal[i+1])
+                        del (auxiliar.vetDataInicial[i+1])
+                        del (auxiliar.vetNome[i+1])'''
                     else:
                         pass
+            elif auxiliar.ocuestado == "NA":
+                if len(auxiliar.vetDataInicial) == 0:
+                    auxiliar.ocuestado = 0
+                else:
+                    a = len(auxiliar.vetDataFinal)
+                    while i < a - 1:
+                        i = i + 1
+                        if auxiliar.vetDataFinal[i] < novoTempo or auxiliar.vetDataInicial[i] < novoTempo:
+                            del (auxiliar.vetNome[i])
+                            del (auxiliar.vetDataInicial[i])
+                            del (auxiliar.vetDataFinal[i])
+                            del (auxiliar.vetPrioridade[i])
+                            auxiliar.ocuestado = 0
+                        elif auxiliar.vetDataInicial[i] > novoTempo:
+                            auxiliar.ocuestado = 2
+
+                            '''chec = 0
+                            for qlq in auxiliar.vetPrioridade:
+                                chec = 0
+                                if qlq == "prioridade":
+                                    chec = 1
+                                else:
+                                    pass
+                            if chec == 0:
+                                auxiliar.vetPrioridade[i] = "prioridade"
+                            else:
+                                pass'''
+
+
 
 
 
