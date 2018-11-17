@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import datetime
 from ClassPrincipal import Painel
 
@@ -23,9 +24,9 @@ def main():
         print("3-Alugar/Reservar veiculo")
         print("4-Devolver/Liberar veiculo")
         print("5-Excluir veiculo")
-        print("6-Avançar data atual")
+        print("6-Avancar data atual")
         print("===================================")
-        print("quantidade de veículos cadastrados:",len(p.vetquant))
+        print("quantidade de veiculos cadastrados:",len(p.vetquant))
         print("")
 
         opcao = input("~:")
@@ -76,26 +77,22 @@ def main():
                                     or (qdiaf > p.vetquant[veiculoNumero].vetDataInicial[rep] and qdiaf < p.vetquant[veiculoNumero].vetDataFinal[rep])) :
                                         print("(A data digitada esta se chocando com outra reserva, por gentileza, escolha outra data:)")
                                         indicador = 1
-                                    if indicador == 1:
+                                    if indicador == "1":
                                         pass
                                     else:
                                         repet1 = 1
                                     rep += 1
 
-                        '''while repet == 0:
-                            if len(p.vetquant[veiculoNumero].vetDataInicial) == 0:
-                                repet = 1
-                            else:
-                                di = datetime.date(ano, mes, dia)
-                                df = di + datetime.timedelta(days=qdia)
-                                repet = 1 #por enquanto'''
                         nCadastro = input("Digite seu nome como cadastro")
                         p.vetquant[veiculoNumero].vetNome.append(nCadastro)
                         p.vetquant[veiculoNumero].vetDataInicial.append(datetime.date(ano, mes, dia))
                         p.vetquant[veiculoNumero].vetDataFinal.append(datetime.date(ano, mes, dia) + datetime.timedelta(days=qdia))
                         p.vetquant[veiculoNumero].vetPrioridade.append(0)
-                        p.vetquant[veiculoNumero].ocuestado = 2 #quando o estado passa a ser 2 veiculo deixa de ser livre(0) e recebe o estatus de reservado
-
+                        if p.vetquant[veiculoNumero].ocuestado == 0:
+                            p.vetquant[veiculoNumero].ocuestado = 2 #quando o estado passa a ser 2 veiculo deixa de ser livre(0) e recebe o estatus de reservado
+                        else:
+                            pass
+                        p.mudarData(tempo)
         elif opcao == "4":
             if len(p.vetquant) == 0:
                 print("não há veiculos cadastrados")
@@ -120,8 +117,9 @@ def main():
                             posicao = 0
                             for im in p.vetquant[opc].vetPrioridade:
                                 if im == "prioridade":
-                                    pass
+                                    break
                                 else:
+                                    print("nop1")
                                     posicao += 1
 
                             diferenca_dias = (tempo - p.vetquant[opc].vetDataInicial[posicao]).days
@@ -134,16 +132,34 @@ def main():
                             p.mudarData(tempo)
                             p.mudarData(tempo)
                         elif p.vetquant[opc].ocuestado == 11:
-                            diferenca_dias = (p.vetquant[opc].vetDataFinal[0] - p.vetquant[opc].vetDataInicial[0]).days
-                            pass
+                            posicao = 0
+                            for im in p.vetquant[opc].vetPrioridade:
+                                if im == "prioridade":
+                                    break
+                                else:
+                                    print("nop")
+                                    posicao = posicao + 1
+                            diferenca_dias = (p.vetquant[opc].vetDataFinal[posicao] - p.vetquant[opc].vetDataInicial[posicao]).days
+                            diferenca_dias_atraso = (tempo - p.vetquant[opc].vetDataFinal[posicao]).days
+                            print(p.vetquant[opc].vetNome[posicao], "pagou",int(diferenca_dias) * int(p.vetquant[opc].vdiaria),"reais por", diferenca_dias,"dias de uso dentro do praso.")
+                            cont = 0
+                            valor_majorado = int(p.vetquant[opc].vdiaria) * 100
+                            valor_a_pagar = valor_majorado * diferenca_dias_atraso
+
+                            print(p.vetquant[opc].vetNome[posicao],"também pagou",valor_a_pagar,"reais de multa por",diferenca_dias_atraso,"dias de atraso")
+                            del (p.vetquant[opc].vetNome[posicao])
+                            del (p.vetquant[opc].vetDataInicial[posicao])
+                            del (p.vetquant[opc].vetDataFinal[posicao])
+                            del (p.vetquant[opc].vetPrioridade[posicao])
+                            p.vetquant[opc].ocuestado = "NA"
+                            p.mudarData(tempo)
+                            p.mudarData(tempo)
                         else:
                             print("veículo não esta alugado")
+                    '''else :
+                        print("escolha == 2")
+                        pass'''
 
-
-                    elif escolha == "2":
-                         pass
-                    else:
-                        print("sem escolhas válidas digitadas")
 
 
 
