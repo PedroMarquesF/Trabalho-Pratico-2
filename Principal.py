@@ -156,9 +156,34 @@ def main():
                             p.mudarData(tempo)
                         else:
                             print("veículo não esta alugado")
-                    '''else :
-                        print("escolha == 2")
-                        pass'''
+
+                    elif escolha == "2":
+                        if len(p.vetquant[opc].vetNome) == 0:
+                            print("nao ha reservas cadastradas para esse veiculo")
+                        else:
+                            contador = 0
+                            for aux in p.vetquant[opc].vetNome:
+                                if p.vetquant[opc].vetPrioridade[contador] == 0:
+                                    print(contador,"-", aux)
+                                else:
+                                    print(" - (conta nao disponivel,veiculo alugado ou atrasado)")
+                                contador = contador + 1
+                            conta_concelar = int(input("Digite a conta que deseja cancelar a partir da numeracao"))
+                            if p.vetquant[opc].vetPrioridade[conta_concelar] == 0:
+                                del (p.vetquant[opc].vetDataFinal[conta_concelar])
+                                del (p.vetquant[opc].vetDataInicial[conta_concelar])
+                                del (p.vetquant[opc].vetNome[conta_concelar])
+                                del (p.vetquant[opc].vetPrioridade[conta_concelar])
+                            else:
+                                print("veiculo digitedo nao existe ou esta alugado/com atraso")
+
+
+
+
+
+
+                    else:
+                        print("escolha uma das opcoes entre 1 e 2")
 
 
 
@@ -180,8 +205,11 @@ def main():
         elif opcao == "6":
             print("a quantidade de dias que deseja avançar")
             nt = int(input())
-            tempo = tempo + datetime.timedelta(days=nt)
-            p.mudarData(tempo)
+            if nt < 0:
+                print("não ha opcao retroceder data")
+            else:
+                tempo = tempo + datetime.timedelta(days=nt)
+                p.mudarData(tempo)
 
 
 
