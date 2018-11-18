@@ -48,11 +48,29 @@ class Painel():
     '''def admdataspegar(self,veiculoNumero):
         print(self.vetquant[veiculoNumero].vAdmDatasI[0])'''
 
+    def quantAlugados(self):
+        cont = 0
+        for auxcont in self.vetquant:
+            if auxcont.ocuestado == 1:
+                cont = cont + 1
+            else:
+                pass
+        return cont
+    def quantAtrasados(self):
+        cont = 0
+        for auxcont in self.vetquant:
+            if auxcont.ocuestado == 11:
+                cont = cont + 1
+            else:
+                pass
+        return cont
+
     def mudarData(self,novoTempo):
         print("passou aqui0")
         for auxiliar in self.vetquant:
             #a = 0
             i = -1
+            print("passou aqui22")
             if auxiliar.ocuestado == 0:
                 print("passou aqui")
                 pass
@@ -89,6 +107,8 @@ class Painel():
 
                     else:
                         pass
+
+
             elif auxiliar.ocuestado == "NA":
                 print("passou aqui NA")
                 if len(auxiliar.vetDataFinal) == 0:

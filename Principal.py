@@ -4,7 +4,6 @@ from ClassPrincipal import Painel
 
 
 def main():
-    print((datetime.date(2018, 11, 2) - datetime.date(2018, 11, 20)).days)
     #date_1 = datetime.date(2018, 11, 2)
     #end_date = date_1 + datetime.timedelta(days=60)
     #print(end_date)
@@ -17,7 +16,7 @@ def main():
     while repetidor == "a":
 
 
-        print("data atual:",tempo)
+        #print("data atual:",tempo)
         print("Digite o numero respectivo a opcao:\n")
         print("1-Consultar veiculos")
         print("2-Adicionar veiculo")
@@ -26,8 +25,10 @@ def main():
         print("5-Excluir veiculo")
         print("6-Avancar data atual")
         print("===================================")
+        print("data atual:", tempo)
         print("quantidade de veiculos cadastrados:",len(p.vetquant))
-        print("")
+        print("quantidade de veiculos alugados:",p.quantAlugados())
+        print("quantidade de veiculos atrasados:", p.quantAtrasados())
 
         opcao = input("~:")
         if opcao == "1":
@@ -44,13 +45,15 @@ def main():
             if len(p.vetquant) == 0:
                 print("não há veiculos cadastrados")
             else:
+                print("*****Tenha em mente que se o veiculo nao estiver disponivel(por motivos de atraso na entrega*****\n"
+                      "*****de outro cliente) ate o dia do inicio da sua reserva ela sera automaticamente cancelada*****")
                 print("Digite o veiculo que deseja de acordo com a numeração:")
                 p.consultarVeiculos()
                 veiculoNumero = int(input("~:")) - 1 #como se trata de um vetor a posição 1 é representada como 0 logo 1-1
                 if veiculoNumero >= len(p.vetquant) or veiculoNumero < 0:
                     print("veiculo não existe")
                 else:
-                    if p.vetquant[veiculoNumero].ocuestado == 1:
+                    if p.vetquant[veiculoNumero].ocuestado == "NA1":
                         print("este veículo não esta disponível")
                     else:
                         repet1 = 0
@@ -175,7 +178,7 @@ def main():
                                 del (p.vetquant[opc].vetNome[conta_concelar])
                                 del (p.vetquant[opc].vetPrioridade[conta_concelar])
                             else:
-                                print("veiculo digitedo nao existe ou esta alugado/com atraso")
+                                print("veiculo digitado nao existe ou esta alugado/com atraso")
 
 
 
