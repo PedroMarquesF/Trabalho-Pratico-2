@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import datetime
 from ClassVeiculo import Veiculo
-from ClassVeiculoAlugar import VeiculoAlugado
 
 
 class Painel():
@@ -118,69 +117,7 @@ class Painel():
                                 break
                             break
 
-
-
-
-                    for iaux in auxiliar.vetDataFinal:
-                        if iaux == "excluido":
-                            del (iaux)
-                        else:
-                            pass
-
-                    for iaux in auxiliar.vetDataInicial:
-                        if iaux == "excluido":
-                            del (iaux)
-                        else:
-                            pass
-
-                    for iaux in auxiliar.vetNome:
-                        if iaux == "excluido":
-                            del (iaux)
-                        else:
-                            pass
-
-                    for iaux in auxiliar.vetPrioridade:
-                        if iaux == "excluido":
-                            del (iaux)
-                        else:
-                            pass
-
-
-
-                        '''a = len(auxiliar.vetDataFinal)
-                        iaux = 0
-                        print("-",iaux)
-                        if len(auxiliar.vetDataFinal) == 0:
-                            auxiliar.ocuestado = 0
-                            break
-
-                        while iaux < a:
-                            print(iaux)
-                            if auxiliar.vetDataFinal[iaux] < novoTempo or auxiliar.vetDataInicial[iaux] < novoTempo:
-                                print("1")
-                                del (auxiliar.vetNome[iaux])
-                                del (auxiliar.vetDataInicial[iaux])
-                                del (auxiliar.vetDataFinal[iaux])
-                                del (auxiliar.vetPrioridade[iaux])
-                                auxiliar.ocuestado = 0
-                                iaux = a
-                            else:
-                                print("NA1")
-                                iaux = iaux + 1'''
-
-                        '''if len(auxiliar.vetDataInicial) > 0:
-                            print("NA2")
-                            auxiliar.ocuestado = 2
-                            break'''
-
-
                     if len(auxiliar.vetDataInicial) > 0:
                         auxiliar.ocuestado = 2
                     else:
                         auxiliar.ocuestado = 0
-
-
-
-
-
-

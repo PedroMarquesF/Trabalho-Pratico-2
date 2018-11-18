@@ -189,18 +189,21 @@ def main():
 
 
         elif opcao == "5":
-            print("Digite o veiculo que deseja de acordo com a numeração:")
-            p.consultarVeiculos()
-            op = int(input()) - 1
-            if p.vetquant[op].ocuestado == 1:
-                print("Este veículo não pode ser excluido pois está alugado")
-            elif p.vetquant[op].ocuestado == 2:
-                print("Este veículo não pode ser excluido pois está reservado")
-            elif p.vetquant[op].ocuestado == 11:
-                print("Este veículo não pode ser excluido pois está alugado com atraso(cliente ainda não desolveu)")
+            if len(p.vetquant) == 0:
+                print("nao ha veiculos cadastrados")
             else:
-                print("veículo",p.vetquant[op],"excluído com sucesso")
-                del(p.vetquant[op])
+                print("Digite o veiculo que deseja de acordo com a numeração:")
+                p.consultarVeiculos()
+                op = int(input()) - 1
+                if p.vetquant[op].ocuestado == 1:
+                    print("Este veículo não pode ser excluido pois está alugado")
+                elif p.vetquant[op].ocuestado == 2:
+                    print("Este veículo não pode ser excluido pois está reservado")
+                elif p.vetquant[op].ocuestado == 11:
+                    print("Este veículo não pode ser excluido pois está alugado com atraso(cliente ainda não desolveu)")
+                else:
+                    print("veículo",p.vetquant[op],"excluído com sucesso")
+                    del(p.vetquant[op])
 
         elif opcao == "6":
             print("a quantidade de dias que deseja avançar")
