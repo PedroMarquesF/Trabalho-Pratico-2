@@ -77,6 +77,10 @@ class Painel():
             elif auxiliar.ocuestado == 2:
                 print("passou aqui1")
                 a = len(auxiliar.vetDataFinal)
+                if len((auxiliar.vetDataFinal)) == 0:
+                    auxiliar.ocuestado = 0
+                else:
+                    pass
                 while i < a - 1:
                     i = i + 1
                     print("passou aqui3")

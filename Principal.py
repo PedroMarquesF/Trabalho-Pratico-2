@@ -108,6 +108,7 @@ def main():
                         print("(veículo não alugado ou reservado)")
                     else:
                         print(auxi,"-",aux.modelo)
+                    print("Digite 999 para sair")
                 opc = int(input("~:")) - 1
                 if opc > len(p.vetquant) or opc < 0:
                     print("Veículo não existe")
@@ -146,7 +147,7 @@ def main():
                             diferenca_dias_atraso = (tempo - p.vetquant[opc].vetDataFinal[posicao]).days
                             print(p.vetquant[opc].vetNome[posicao], "pagou",int(diferenca_dias) * int(p.vetquant[opc].vdiaria),"reais por", diferenca_dias,"dias de uso dentro do praso.")
                             cont = 0
-                            valor_majorado = int(p.vetquant[opc].vdiaria) * 100
+                            valor_majorado = int(p.vetquant[opc].vdiaria) * 2
                             valor_a_pagar = valor_majorado * diferenca_dias_atraso
 
                             print(p.vetquant[opc].vetNome[posicao],"também pagou",valor_a_pagar,"reais de multa por",diferenca_dias_atraso,"dias de atraso")
@@ -171,14 +172,18 @@ def main():
                                 else:
                                     print(" - (conta nao disponivel,veiculo alugado ou atrasado)")
                                 contador = contador + 1
-                            conta_concelar = int(input("Digite a conta que deseja cancelar a partir da numeracao"))
-                            if p.vetquant[opc].vetPrioridade[conta_concelar] == 0:
-                                del (p.vetquant[opc].vetDataFinal[conta_concelar])
-                                del (p.vetquant[opc].vetDataInicial[conta_concelar])
-                                del (p.vetquant[opc].vetNome[conta_concelar])
-                                del (p.vetquant[opc].vetPrioridade[conta_concelar])
+                            conta_concelar = int(input("Digite a conta que deseja cancelar a partir da numeracao\nou\nDigite 999 para sair"))
+                            if conta_concelar == 999:
+                                pass
                             else:
-                                print("veiculo digitado nao existe ou esta alugado/com atraso")
+                                if p.vetquant[opc].vetPrioridade[conta_concelar] == 0:
+                                    del (p.vetquant[opc].vetDataFinal[conta_concelar])
+                                    del (p.vetquant[opc].vetDataInicial[conta_concelar])
+                                    del (p.vetquant[opc].vetNome[conta_concelar])
+                                    del (p.vetquant[opc].vetPrioridade[conta_concelar])
+                                    p.mudarData(tempo)
+                                else:
+                                    print("veiculo digitado nao existe ou esta alugado/com atraso")
 
 
 
