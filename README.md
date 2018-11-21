@@ -5,7 +5,7 @@ prof Wendley
 --Sistema operacional que foi usado: Linux
 --Versao do python: Python 3.7.0
 --Edicao de codigo: Pycharm
---O programa esta sendo enviado como pedido pelo professor porem com algumas resalvas:
+--O programa esta sendo enviado como pedido pelo professor, porem com algumas resalvas:
 *Na funcao avancar data(6) o usuario pode escolher a quantidade de dias que deseja avancar baseado no seu objetivo.Esta e a unica funcao que esta um pouco diferete do que foi pedido pelo professor.
 
 *O programa foi todo feito no pycharm e esta funcionando de acordo com o esperado na plataforma, porem, quando executado no terminal ou cmd nao funciona corretamente(nao sai do menu principal e valores sao printados de forma estranha) ,eu nao fui capaz de identificar o fator causador disso.
