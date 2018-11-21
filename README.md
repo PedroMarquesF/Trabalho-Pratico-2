@@ -6,7 +6,7 @@ sistema operacional que foi usado: Linux
 versao do python: Python 3.7.0
 edicao de codigo: Pycharm
 o programa esta sendo enviado como pedido pelo professor porem com algumas resalvas:
--Na funcao avancar data(6) o usuario pode escolher a quantidade de dias que deseja avancar baseado no seu objetivo.Fora isso as opcoes estao de acordo com o que foi pedido pelo professor
+-Na funcao avancar data(6) o usuario pode escolher a quantidade de dias que deseja avancar baseado no seu objetivo.Esta e a unica funcao que esta um pouco diferete do que foi pedido pelo professor.
 
 -O programa foi todo feito no pycharm e esta funcionando bem na plataforma porem quando executado no terminal ou cmd nao funciona corretamente ,eu nao fui capaz de identificar o erro.
 Como percebi o problema no final da criacao do programa faltando poucos dias para a entrega do trabalho nao era viavel a criacao de outro programa, pesso desculpas por esse imprevisto.
