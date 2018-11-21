@@ -2,9 +2,9 @@
 prof Wendley
 Nome:Pedro Marques Freire
 Matricula: 412987
-sistema operacional que foi usado: Linux
-versao do python: Python 3.7.0
-edicao de codigo: Pycharm
+Sistema operacional que foi usado: Linux
+Versao do python: Python 3.7.0
+Edicao de codigo: Pycharm
 o programa esta sendo enviado como pedido pelo professor porem com algumas resalvas:
 -Na funcao avancar data(6) o usuario pode escolher a quantidade de dias que deseja avancar baseado no seu objetivo.Esta e a unica funcao que esta um pouco diferete do que foi pedido pelo professor.
 
