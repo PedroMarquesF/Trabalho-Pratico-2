@@ -1,4 +1,4 @@
-# Muito importente a leitura Trabalho-Pratico-2
+# Muito importante a leitura Trabalho-Pratico-2
 prof Wendley
 --Nome:Pedro Marques Freire
 --Matricula: 412987
