@@ -41,12 +41,6 @@ class Painel():
     def vetalugados(self):
         self.vetDias = []
 
-    '''def admdatas(self, veiculoNumero):
-        self.vetquant[veiculoNumero].vetDataInicial.append(self.vetquant[veiculoNumero].dataInicial)
-        #self.vetquant[veiculoNumero].admDatas.append(self.vetquant[veiculoNumero].dataFinal)'''
-
-    '''def admdataspegar(self,veiculoNumero):
-        print(self.vetquant[veiculoNumero].vAdmDatasI[0])'''
 
     def quantAlugados(self):
         cont = 0
@@ -66,16 +60,12 @@ class Painel():
         return cont
 
     def mudarData(self,novoTempo):
-        print("passou aqui0")
         for auxiliar in self.vetquant:
             #a = 0
             i = -1
-            print("passou aqui22")
             if auxiliar.ocuestado == 0:
-                print("passou aqui")
                 pass
             elif auxiliar.ocuestado == 2:
-                print("passou aqui1")
                 a = len(auxiliar.vetDataFinal)
                 if len((auxiliar.vetDataFinal)) == 0:
                     auxiliar.ocuestado = 0
@@ -83,16 +73,13 @@ class Painel():
                     pass
                 while i < a - 1:
                     i = i + 1
-                    print("passou aqui3")
                     #print(self.vetquant[a].vetDataInicial)
                     print(auxiliar.vetDataFinal[i])
                     if auxiliar.vetDataFinal[i] < novoTempo:
-                        print("ita")
                         auxiliar.vetPrioridade[i] = "prioridade"
                         auxiliar.ocuestado = 11
                         break
                     elif auxiliar.vetDataInicial[i] <= novoTempo and auxiliar.vetDataFinal[i] > novoTempo:
-                        print("passou aqui2")
                         auxiliar.vetPrioridade[i] = "prioridade"
                         auxiliar.ocuestado = 1
                         break
@@ -103,9 +90,7 @@ class Painel():
                 a = len(auxiliar.vetDataFinal)
                 while i < a - 1:
                     i = i + 1
-                    print("passou aquiaa")
                     if auxiliar.vetDataFinal[i] < novoTempo:
-                        print("itaala")
                         auxiliar.vetPrioridade[i] = "prioridade"
                         auxiliar.ocuestado = 11
 
@@ -114,12 +99,9 @@ class Painel():
 
 
             elif auxiliar.ocuestado == "NA":
-                print("passou aqui NA")
                 if len(auxiliar.vetDataFinal) == 0:
-                    print("passou aqui NA1")
                     auxiliar.ocuestado = 0
                 else:
-                    print("passou aqui NA2")
                     #a = len(auxiliar.vetDataFinal)
                     iaux = 0
                     for contador in range(0, 1000):
@@ -134,7 +116,6 @@ class Painel():
                                 del (auxiliar.vetPrioridade[iaux])
 
                                 if len(auxiliar.vetDataFinal) == 0:
-                                    print("FUNCIONA")
                                     break
                                 iaux = iaux + 1
                             else:

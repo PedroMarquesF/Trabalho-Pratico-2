@@ -4,14 +4,10 @@ from ClassPrincipal import Painel
 
 
 def main():
-    #date_1 = datetime.date(2018, 11, 2)
-    #end_date = date_1 + datetime.timedelta(days=60)
-    #print(end_date)
+
 
     repetidor = "a"
     p = Painel([],[],datetime.date.today())
-    #if datetime.date.today() > datetime.date(2018, 11, 2):
-        #print("funfou")
     tempo = datetime.date.today()
     while repetidor == "a":
 
