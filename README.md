@@ -8,7 +8,7 @@ prof Wendley
 --O programa esta sendo enviado como pedido pelo professor porem com algumas resalvas:
 *Na funcao avancar data(6) o usuario pode escolher a quantidade de dias que deseja avancar baseado no seu objetivo.Esta e a unica funcao que esta um pouco diferete do que foi pedido pelo professor.
 
-*O programa foi todo feito no pycharm e esta funcionando dee acordo com o esperado na plataforma, porem, quando executado no terminal ou cmd nao funciona corretamente ,eu nao fui capaz de identificar o erro.
+*O programa foi todo feito no pycharm e esta funcionando dee acordo com o esperado na plataforma, porem, quando executado no terminal ou cmd nao funciona corretamente(nao sai do menu principal e valores sao printados de forma estranha) ,eu nao fui capaz de identificar o fator causador disso.
 Como percebi o problema no final da criacao do programa faltando poucos dias para a entrega do trabalho nao era viavel a criacao de outro programa, pesso desculpas por esse imprevisto.
 Tendo isso em vista o corretor deve executar o programa estritamente na plataforma Pycharm.
 
