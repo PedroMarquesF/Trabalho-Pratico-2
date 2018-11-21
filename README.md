@@ -1,7 +1,11 @@
 # Muito importente a leitura Trabalho-Pratico-2
 prof Wendley
-Nome:Pedro Marques Freire \n
+Nome:Pedro Marques Freire 
 Matricula: 412987
+
+
+
+
 Sistema operacional que foi usado: Linux
 Versao do python: Python 3.7.0
 Edicao de codigo: Pycharm
