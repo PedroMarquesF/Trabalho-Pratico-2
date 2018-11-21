@@ -1,15 +1,11 @@
 # Muito importente a leitura Trabalho-Pratico-2
 prof Wendley
-Nome:Pedro Marques Freire 
-Matricula: 412987
-
-
-
-
-Sistema operacional que foi usado: Linux
-Versao do python: Python 3.7.0
-Edicao de codigo: Pycharm
-o programa esta sendo enviado como pedido pelo professor porem com algumas resalvas:
+--Nome:Pedro Marques Freire 
+--Matricula: 412987
+--Sistema operacional que foi usado: Linux
+--Versao do python: Python 3.7.0
+--Edicao de codigo: Pycharm
+O programa esta sendo enviado como pedido pelo professor porem com algumas resalvas:
 -Na funcao avancar data(6) o usuario pode escolher a quantidade de dias que deseja avancar baseado no seu objetivo.Esta e a unica funcao que esta um pouco diferete do que foi pedido pelo professor.
 
 -O programa foi todo feito no pycharm e esta funcionando dee acordo com o esperado na plataforma, porem, quando executado no terminal ou cmd nao funciona corretamente ,eu nao fui capaz de identificar o erro.
