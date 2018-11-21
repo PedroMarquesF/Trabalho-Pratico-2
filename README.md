@@ -21,4 +21,4 @@ Passo-a-passo para abrir o programa no pycharm:
 4.Na barra de projetos(a esquerda na tela )expanda a pasta (Trabalho-Pratico-2-master) e clique com o botao direito em Principal.py e em (Run 'Principal'), apos isso o programa deve iniciar a execucao na parte inferior da tela
 
 Passo-a-passo programa:
-o programa e intuitivo, nao exige explicacoes
+o programa e intuitivo, dispensa explicacoes
